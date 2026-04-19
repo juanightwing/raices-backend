@@ -15,7 +15,19 @@ const Contact = sequelize.define('Contact', {
     type: DataTypes.STRING(10),
     allowNull: false
   },
-  descripcion: {
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  ciudad: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  como_nos_conocio: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  mensaje: {
     type: DataTypes.TEXT,
     allowNull: true
   }
