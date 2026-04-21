@@ -2,7 +2,13 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const sequelize = require('./src/database');
+
 const contactRoutes = require('./src/routes/contactRoutes');
+const authRoutes = require('./src/routes/authRoutes');
+
+require('./src/models/userModel');
+require('./src/models/sessionModel');
+require('./src/models/contactModel');
 
 dotenv.config();
 
@@ -11,6 +17,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use('/api/auth', authRoutes);
 app.use('/api/contactos', contactRoutes);
 
 app.get('/', (req, res) => {
