@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const Session = require('../models/sessionModel');
+const Session = require('../models/sessionModel.js');
 
 const verificarToken = async (req, res, next) => {
   try {

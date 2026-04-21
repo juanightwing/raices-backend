@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
-const Session = require('../models/sessionModel');
+const Session = require('../models/sessionModel.js');
 
 const registrar = async (datos) => {
   const { nombre, email, password } = datos;
