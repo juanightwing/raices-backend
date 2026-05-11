@@ -10,7 +10,15 @@ const obtenerContactos = async () => {
   });
 };
 
+const obtenerContactosPorUsuario = async (userId) => {
+  return await Contact.findAll({
+    where: { userId },
+    order: [['createdAt', 'DESC']]
+  });
+};
+
 module.exports = {
   guardarContacto,
-  obtenerContactos
+  obtenerContactos,
+  obtenerContactosPorUsuario
 };

@@ -1,7 +1,7 @@
 const contactRepository = require('../repositories/contactRepository');
 
 const crearContacto = async (datos) => {
-  const { nombre, telefono, email, ciudad, como_nos_conocio, mensaje } = datos;
+  const { nombre, telefono, email, ciudad, como_nos_conocio, mensaje, userId } = datos;
 
   if (!nombre || nombre.trim() === '') {
     throw new Error('El nombre es obligatorio');
@@ -38,7 +38,8 @@ const crearContacto = async (datos) => {
     email: email.trim(),
     ciudad: ciudad.trim(),
     como_nos_conocio: como_nos_conocio ? como_nos_conocio.trim() : '',
-    mensaje: mensaje ? mensaje.trim() : ''
+    mensaje: mensaje ? mensaje.trim() : '',
+    userId: userId || null
   });
 
   return contactoGuardado;
@@ -48,7 +49,12 @@ const listarContactos = async () => {
   return await contactRepository.obtenerContactos();
 };
 
+const listarMisSolicitudes = async (userId) => {
+  return await contactRepository.obtenerContactosPorUsuario(userId);
+};
+
 module.exports = {
   crearContacto,
-  listarContactos
+  listarContactos,
+  listarMisSolicitudes
 };

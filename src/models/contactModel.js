@@ -27,10 +27,16 @@ const Contact = sequelize.define('Contact', {
     type: DataTypes.STRING,
     allowNull: true
   },
-  mensaje: {
+mensaje: {
     type: DataTypes.TEXT,
     allowNull: true
+  },
+  userId: {
+    type: DataTypes.INTEGER,
+    allowNull: true
   }
+}, {
+  tableName: 'contactos',
 }, {
   tableName: 'contactos',
   timestamps: true
